@@ -25,6 +25,8 @@ $(function(){
 		})
 	})
 
+
+
 	//商品分类热销效果
 	$(function(){
 		$(".jnCatainfo .promoted").append('<s class="hot"><s/>')
@@ -32,30 +34,7 @@ $(function(){
 
 	//广告大图切换效果
 
-	// var index= 0;
-	// $("#jnImageroll div a").mouseover(function(){
-	// 	// alert(10);
-	// 	index = $("#jnImageroll div a").index(this);
-	// 	showImg(index);
-	// }).eq(0).mouseover();
 
-	// function showImg(index){
-	// 	var $rollobj = $("#jnImageroll");
-	// 	var $rolllist = $rollobj.find("div a");
-	// 	var newhref = $rolllist.eq(index).attr("href");
-	// 	$("#JS_imgWrap").attr("href","newhref")
-	// 					.find("img").eq(index).stop(true,true).fadeIn()
-	// 					.siblings().fadeOut();
-	// 	$rolllist.removeClass("chos").css("opacity","0.7")
-	// 			 .eq(index).addClass("chos").css("opacity","1") 				
-	// }
-
-	// //添加自动切换广告效果
-	// adTime = setInterval(function(){
-	// 	showImg(index)
-	// 	index++;
-	// 	if(index==len){index=0;}
-	// },5000);
 
 	$(function(){
 		var $imgrolls = $("#jnImageroll div a"); //获得id为jn下的div 下的所有a标签
@@ -125,7 +104,7 @@ $(function(){
 	$(function(){
 		$("#jnBrandTab li a ").click(function(){
 			$(this).parent().addClass("chos")
-				   .sibling().removeClass("chos");
+				   .siblings().removeClass("chos");
 			var idx = $("#jnBrandTab li a").index(this);
 			showBrandList(idx);
 			return false;
@@ -133,10 +112,30 @@ $(function(){
 	});
 	function showBrandList(index){
 		var $rollobj = $("#jnBrandList");
-		var rollwidth = $rollobj.find("li").outerWidth();
+		var rollWidth = $rollobj.find("li").outerWidth();
 		rollWidth = rollWidth * 4 ;
 		$rollobj.stop(true,false).animate({left: -rollWidth*index},1000);
 	}
+
+	//介绍选项卡切换效果
+	
+	$(function(){
+		var $div_li=$("div.tab_menu ul li");
+		$div_li.click(function(){
+			$(this).addClass("selected")
+					.siblings().removeClass("selected");
+		})
+		var index = $div_li.index(this);
+
+	$("div.tab_box > div")
+		.eq(index).show()
+		.siblings().hide();
+	}).hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	})
+
 	
 })
 

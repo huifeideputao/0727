@@ -482,6 +482,10 @@ html .hide{display:none;}
 .tab .tab_menu{
 	clear:both;
 }
+.tab .tab_menu ul li .selected {
+	color:#008CD7 !important;;
+	background:#6D84B4;
+} 
 .tab .tab_menu li{
 	float:left;
 	text-align: center;
@@ -493,10 +497,8 @@ html .hide{display:none;}
 	border: 1px solid #898989;
 	border-bottom:none;
 }
-.tab .tab_menu li .selected{
-	color:#FFF;
-	background:#6D84B4;
-} 
+
+
 .tab .tab_box{
 	clear:both;
 	border:1px solid #898989;
